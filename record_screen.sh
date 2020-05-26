@@ -1,3 +1,5 @@
+# !/bin/sh
+# Replace $1 with your desired output file name.
 ffmpeg -y -f alsa -i default \
 -f x11grab -s `xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -r 25 \
 -i :0.0 -f video4linux2 \
