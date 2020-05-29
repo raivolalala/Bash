@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 [ "$(stat -c %y ~/.cache/corona 2>/dev/null| cut -d ' ' -f1)" != \
 	"$(date '+%Y-%m-%d')" ] &&

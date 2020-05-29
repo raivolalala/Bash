@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # $1 - full path to your existing picture file; 
 # $2 - full path to your existing audio file; 
 # $3 - full path to your new output video file.

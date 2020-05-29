@@ -1,3 +1,4 @@
+#!/bin/bash
 ffmpeg -f alsa -i pulse -f x11grab -s 1366x768 \
 	-r 30 -i :0.0+0,0 \
 	-vf "movie=/dev/video0:f=video4linux2, scale=240:-1, fps, setpts=PTS-STARTPTS [movie]; [in][movie] overlay=main_w-overlay_w-2:main_h-overlay_h-2 [out]"\

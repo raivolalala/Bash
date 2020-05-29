@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 folder_list=$(locate $1)
 for i in $folder_list
