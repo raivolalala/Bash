@@ -4,6 +4,5 @@ capacity=`cat /sys/class/power_supply/BAT0/capacity`
 bat_status=`cat /sys/class/power_supply/BAT0/status`
 temp=`sensors | awk '/^Core 0/ {print "CPU temp: "$3}'`
 
-echo Battery: $capacity%;
-echo Battery staus: $bat_status;
+echo Battery: $capacity%, $bat_status;
 echo $temp
