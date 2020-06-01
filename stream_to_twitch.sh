@@ -1,9 +1,22 @@
 #!/bin/bash
 
-ffmpeg -f x11grab -video_size 1366x768 \
-       	-framerate 24 -i $DISPLAY -f alsa -i default \
-	-af acompressor=threshold=0.089:ratio=9:attack=200:release=1000 \
-	-vf scale=1280x720 -c:v h264 -g 24 -b:v 2M -preset ultrafast \
-	-c:a aac -pix_fmt yuv420p \
-	out.mkv
-#	-f flv "rtmp://live-lax.twitch.tv/app/live_496104237_gY9wixUV1VoMxTTMEwt0fGUQtBBSqx"
+streaming() {
+	INRES="1366x768" # input resolution
+	OUTRES="1366x768" # output resolution
+	FPS="15" # target FPS
+	GOP="30" # i-frame interval, should be double of FPS, 
+	GOPMIN="15" # min i-frame interval, should be equal to fps, 
+	THREADS="2" # max 6
+	CBR="1000k" # constant bitrate (should be between 1000k - 3000k)
+	QUALITY="ultrafast"  # one of the many FFMPEG preset
+	AUDIO_RATE="44100"
+	#STREAM_KEY="$1"
+	STREAM_KEY="live_496104237_gY9wixUV1VoMxTTMEwt0fGUQtBBSqx"
+	SERVER="live-sjc" # twitch server in California, see http://bashtech.net/twitch/ingest.php to change 
+     
+	ffmpeg -f x11grab -s "$INRES" -r "$FPS" -i :0.0 -f alsa -i pulse -f flv -ac 2 -ar $AUDIO_RATE \
+		-vcodec libx264 -g $GOP -keyint_min $GOPMIN -b:v $CBR -minrate $CBR -maxrate $CBR -pix_fmt yuv420p\
+		-s $OUTRES -preset $QUALITY -tune film -acodec libmp3lame -threads $THREADS -strict normal \
+		-bufsize $CBR "rtmp://$SERVER.twitch.tv/app/$STREAM_KEY"
+}
+streaming
