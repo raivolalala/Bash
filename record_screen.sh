@@ -1,5 +1,5 @@
 #!/bin/bash
-INRES="1366x768" -manual
+INRES="1366x768" #manual
 #INRES_A=`xdpyinfo | grep 'dimensions:'|awk '{print $2}'` -automatic 
 ffmpeg -y -f alsa -i default \
 	-f x11grab -s "$INRES" -r 25 \
