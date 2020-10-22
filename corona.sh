@@ -14,4 +14,4 @@ grep "Latvia" ~/.cache/corona_$now |
        	"New deaths: "$6"\n"\
        	"Recovered: "$7"\n"\
        	"Active cases: "$8"\n"}' | tee ~/Documents/COVID19/corona_$now
-#rm ~/.cache/corona
+rm ~/.cache/corona_$now
