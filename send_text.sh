@@ -6,7 +6,7 @@
 # Note the long string var usage further on - in double quotes.
 # Double quotes on line 16 remove newline char after backslash.
 
-nmbr='+37129383070'
+nmbr=''
 msg='I hope it is fun in the countryside.. \
 	You owe Binance.'
 
