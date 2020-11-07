@@ -1,10 +1,7 @@
 #!/bin/bash
 
 now=$(date +"%Y-%m-%d")
-folder="home/raivo/Documents/COVID19_data/"
-# Listen, I dunno why I declared a var, and on the
-# 24th line it's hardcoded. It doesn't work and I am too lazy to
-# find out, why.
+folder='/home/raivo/Documents/COVID19_data'
 
 if [ $(date +%H) -lt 12 ]; then
 	echo Not the right time for script.
@@ -21,6 +18,6 @@ if [ $(date +%H) -lt 12 ]; then
 		       	"New deaths: "$6"\n"\
 		       	"Recovered: "$7"\n"\
 		       	"Active cases: "$8"\n"}' | 
-			tee ~/Documents/COVID19_data/corona_$now &&
+			tee $folder/corona_$now &&
 		rm ~/.cache/corona_$now
 fi
