@@ -18,6 +18,6 @@ if [ $(date +%H) -lt 12 ]; then
 		       	"New deaths: "$6"\n"\
 		       	"Recovered: "$7"\n"\
 		       	"Active cases: "$8"\n"}' | 
-			tee $folder/corona_$now &&
+			tee "$folder/corona_$now" &&
 		rm ~/.cache/corona_$now
 fi
