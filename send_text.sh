@@ -4,11 +4,10 @@
 
 # Long string var definition below.
 # Note the long string var usage further on - in double quotes.
-# Double quotes on line 16 remove newline char after backslash.
+# Double quotes on line 14 remove newline char after backslash.
 
-nmbr=''
-msg='I hope it is fun in the countryside.. \
-	You owe Binance.'
+nmbr=$1
+msg=$2
 
 curl -X POST https://textbelt.com/text \
        --data-urlencode phone=$nmbr \
