@@ -1,2 +1,2 @@
-printf "\u001b[37mLatvia\n\u001b[0m"
+printf "\u001b[32mLatvia\n\u001b[0m"
 
