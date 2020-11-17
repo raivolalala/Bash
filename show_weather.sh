@@ -1,8 +1,9 @@
-#!/bin/bash
+wttr()
+{   
+    # change Berlin to your default location
+    local request="wttr.in/${1-Riga}"
+    [ "$(tput cols)" -lt 125 ] && request+='?n'
+    curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
 
-# TODO: Throws 404... again... and again... aaaand again...
-weather='https://www.accuweather.com/akam/11\
-	/pixel_651fbf7e?a=dD0yMmY4NjRkZjM5\
-	OTk0MTc5MDRjYjViN2Y3ZmM5MWRkZDA1M2JhODMyJmpzPW9mZg=='
-notify-send "Loading radar data..."
-mpv --force-seekable=yes --loop-file=inf "$weather"
+wttr
