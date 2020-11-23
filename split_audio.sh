@@ -15,6 +15,6 @@ track2=$(sed -n 2p $1 | cut -c10-)
 track3=$(sed -n 3p $1 | cut -c10-)
 
 # Cut the file into tracks
-ffmpeg -ss ${time1} -i $2 -to ${time2} "${track1}.mp3"
-ffmpeg -ss ${time2} -i $2 -to ${time3} "${track2}.mp3"
-ffmpeg -ss ${time3} -i $2 -to ${time4} "${track3}.mp3"
+ffmpeg -ss ${time1} -i "$2" -to ${time2} "${track1}.mp3"
+ffmpeg -ss ${time2} -i "$2" -to ${time3} "${track2}.mp3"
+ffmpeg -ss ${time3} -i "$2" -to ${time4} "${track3}.mp3"
