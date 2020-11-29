@@ -14,6 +14,7 @@ track1=$(sed -n 1p $1 | cut -c10-)
 track2=$(sed -n 2p $1 | cut -c10-)
 track3=$(sed -n 3p $1 | cut -c10-)
 
+# TODO: need to add line numbers as track numbers.
 # Cut the file into tracks
 ffmpeg -ss ${time1} -i "$2" -to ${time2} "${track1}.mp3"
 ffmpeg -ss ${time2} -i "$2" -to ${time3} "${track2}.mp3"
