@@ -14,6 +14,7 @@ time7=$(sed -n 7p $1 | head -c 8)
 time8=$(sed -n 8p $1 | head -c 8)
 time9=$(sed -n 9p $1 | head -c 8)
 time10=$(sed -n 10p $1 | head -c 8)
+time11=$(sed -n 11p $1 | head -c 8)
 
 # Track names
 track1=$(sed -n 1p $1 | cut -c10-)
@@ -25,6 +26,7 @@ track6=$(sed -n 6p $1 | cut -c10-)
 track7=$(sed -n 7p $1 | cut -c10-)
 track8=$(sed -n 8p $1 | cut -c10-)
 track9=$(sed -n 9p $1 | cut -c10-)
+track10=$(sed -n 10p $1 | cut -c10-)
 
 # TODO: need to add line numbers as track numbers.
 # Cut the file into tracks
@@ -39,3 +41,5 @@ ffmpeg -ss ${time6} -i "$2" -to ${time7} "${track6}.mp3"
 ffmpeg -ss ${time7} -i "$2" -to ${time8} "${track7}.mp3"
 ffmpeg -ss ${time8} -i "$2" -to ${time9} "${track8}.mp3"
 ffmpeg -ss ${time9} -i "$2" -to ${time10} "${track9}.mp3"
+
+ffmpeg -ss ${time10} -i "$2" -to ${time11} "${track10}.mp3"
