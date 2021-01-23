@@ -42,4 +42,4 @@ ffmpeg -ss ${time7} -i "$2" -to ${time8} "${track7}.mp3"
 ffmpeg -ss ${time8} -i "$2" -to ${time9} "${track8}.mp3"
 ffmpeg -ss ${time9} -i "$2" -to ${time10} "${track9}.mp3"
 
-ffmpeg -ss ${time10} -i "$2" -to ${time11} "${track10}.mp3"
+ffmpeg -ss ${time10} -i "$2" -to ${time10} "${track10}.mp3"
