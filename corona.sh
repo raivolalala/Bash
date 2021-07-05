@@ -12,7 +12,7 @@ if [ $(date +%H) -lt 12 ]; then
 		grep "Latvia" ~/.cache/corona_$now |
 			sed "s/\s*//g; s/║//g ; s/│/;/g ; s/▲//g" |
 			awk -F';' '{print $2"\n"\
-		       	"Total cases: "$3"\n"\ 
+		       	"Total cases: "$3"\n"\
 			"New cases: "$4"\n"\
 		       	"Deaths: "$5"\n"\
 		       	"New deaths: "$6"\n"\
